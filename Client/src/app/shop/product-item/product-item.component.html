@@ -1,0 +1,34 @@
+<div class="col">
+  <div class="shadow-sm card">
+    <div class="cursor-pointer overlay position-relative">
+      <img
+        src="{{ product?.pictureUrl }}"
+        alt="{{ product?.name }}"
+        class="img-fluid"
+        routerLink="/shop/{{ product?.id }}"
+      />
+      <div
+        class="d-flex align-items-center justify-content-around hover-overlay"
+      >
+        <button
+          type="button"
+          class="mx-2 btn btn-primary fa fa-shopping-cart"
+          (click)="addItemToCart()"
+        ></button>
+        <button
+          routerLink="/shop/{{ product?.id }}"
+          type="button"
+          class="btn btn-primary"
+        >
+          View
+        </button>
+      </div>
+    </div>
+    <div class="card-body">
+      <p class="card-text" routerLink="/shop/{{ product?.id }}">
+        {{ product?.name }}
+      </p>
+      <span class="mb-2"> {{ product?.price | currency }}</span>
+    </div>
+  </div>
+</div>

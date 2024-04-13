@@ -1,0 +1,75 @@
+<div class="container fixed-top">
+  <div
+    class="bg-white  d-flex flex-column-reverse flex-md-row align-items-center justify-content-between border-bottom"
+  >
+    <img
+      src="/assets/images/logo.png"
+      style="max-height: 70px"
+      alt="logo"
+      class="logo d-none d-md-block"
+      routerLink="/"
+    />
+
+    <xng-breadcrumb></xng-breadcrumb>
+
+    <div class="toolbelt">
+      <a routerLink="/cart" class="position-relative">
+        <i class="mx-2 fa fa-shopping-cart fa-2x text-dark"></i>
+        <div *ngIf="cart$ | async as cart" class="cart-no">
+          {{ cart.items.length }}
+        </div>
+      </a>
+      <a routerLink="/shop">
+        <i class="mx-2 fa fa-home fa-2x text-dark"></i>
+      </a>
+      <ng-container *ngIf="(currentUser$ | async)?.email === ''; else logged">
+        <a
+          routerLink="/account/register"
+          role="button"
+          class="d-block btn btn-outline-secondary ms-2"
+          >Sign up</a
+        >
+        <a
+          routerLink="/account/login"
+          role="button"
+          class="d-block btn btn-outline-secondary ms-3"
+          >Login</a
+        >
+      </ng-container>
+      <ng-template #logged>
+        <div class="dropdown" dropdown>
+          <a class="dropdown-toggle" role="button" dropdownToggle
+            ><strong
+              >Welcome {{ (currentUser$ | async)?.displayName }}</strong
+            ></a
+          >
+          <div
+            role="button"
+            class="dropdown-menu dropdown-menu-right"
+            *dropdownMenu=""
+          >
+            <a
+              routerLink="/cart"
+              class="py-2 dropdown-item d-flex align-items-center"
+            >
+              <i class="fa fa-shopping-cart me-3"></i>Shopping Cart
+            </a>
+            <a
+              routerLink="/orders"
+              class="py-2 dropdown-item d-flex align-items-center"
+            >
+              <i class="fa fa-history me-3"></i>View Orders
+            </a>
+            <div class="dropdown-divier"></div>
+            <a
+              (click)="logout()"
+              class="py-2 dropdown-item d-flex align-items-center"
+            >
+              <i class="fa fa-sign-out me-3"></i>Logout
+            </a>
+          </div>
+        </div>
+      </ng-template>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,42 @@
+.toolbelt {
+  display: flex;
+  width: 100%;
+  max-width: 300px;
+  align-items: center;
+  justify-content: space-between;
+  @media (max-width: 768px) {
+    margin: 14px auto;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+.cart-no {
+  position: absolute;
+  min-height: 25px;
+  min-width: 25px;
+  border-radius: 50%;
+  font-size: 1em;
+  background: blue;
+  color: white;
+  text-align: center;
+  top: -12px;
+  right: 32px;
+}
+
+a {
+  text-decoration: none;
+  color: #343a40;
+
+  &.active {
+    color: orange;
+  }
+}
+
+.logo {
+  cursor: pointer;
+
+  &.focus {
+    outline: none;
+  }
+}

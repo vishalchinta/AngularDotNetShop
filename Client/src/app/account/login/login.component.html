@@ -1,0 +1,36 @@
+<div class="text-center form-signin mt-8">
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <!--  <img
+      class="mb-4"
+      src="/assets/images/logo.png"
+      alt=""
+      width="240"
+      height="95"
+    /> -->
+    <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+
+    <app-text-input
+      class="d-block my-2"
+      formControlName="email"
+      [label]="'Email'"
+    ></app-text-input>
+    <app-text-input
+      class="d-block my-2"
+      formControlName="password"
+      [label]="'password'"
+      [type]="'password'"
+    ></app-text-input>
+
+    <div class="checkbox mb-3">
+      <label> <input type="checkbox" value="remember-me" /> Remember me </label>
+    </div>
+    <button
+      [disabled]="loginForm.invalid"
+      class="w-100 btn btn-lg btn-primary"
+      type="submit"
+    >
+      Sign in
+    </button>
+    <p class="mt-5 mb-3 text-muted">©NgNetStore</p>
+  </form>
+</div>
