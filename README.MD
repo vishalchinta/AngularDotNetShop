@@ -24,4 +24,4 @@ implement the Specification Pattern Enhancing Generic Repository and combined in
 - Docker
 - DigitalOcean Droplets
 
-Project deployed at: [Bzouss](https://bzouss.com)
+
